@@ -3,24 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio de Euugomes - Desenvolvedor Web especializado em sites modernos, design limpo e excelente usabilidade.">
-  <title>Portfólio de Euugomes</title>
+  <meta name="description" content="Portfólio de Lucas Gomes - Desenvolvedor Web especializado em sites modernos, design limpo e excelente usabilidade.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="https://github.com/euugomes/euugomes.github.io/raw/main/favicon.png">
+  <title>Portfólio de Lucas Gomes</title>
   <!-- AOS Animate On Scroll CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* ==== Fundo gradiente monocromático animado ==== */
+    /* ==== Fundo gradiente multicor animado ==== */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #c9d1d9;
       line-height: 1.6;
-      background: linear-gradient(120deg, #0d1117 0%, #161b22 60%, #273447 100%);
-      background-size: 300% 300%;
-      animation: gradienteFundo 8s ease-in-out infinite;
+      /* Cinco tons monocromáticos + branco */
+      background: linear-gradient(120deg, #0d1117 0%, #161b22 25%, #273447 50%, #3a4762 75%, #bfcbe8 90%, #fff 100%);
+      background-size: 400% 400%;
+      animation: gradienteFundo 4s ease-in-out infinite;
       padding-top: 100px;
     }
     @keyframes gradienteFundo {
       0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
+      30%  { background-position: 100% 50%; }
+      50%  { background-position: 75% 90%; }
+      70%  { background-position: 80% 100%; }
       100% { background-position: 0% 50%; }
     }
 
@@ -39,6 +44,10 @@
       color: #58a6ff;
       margin-bottom: 5px;
       font-size: 2em;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-shadow: 0px 1px 7px rgba(88,166,255,0.14);
     }
     nav a {
       color: #58a6ff;
@@ -84,18 +93,18 @@
       box-shadow: 0 6px 28px 0 rgba(88,166,255,0.13),
                   0 2px 8px 0 rgba(34,42,61,0.12);
       transition:
-        transform 0.35s cubic-bezier(.4,1.15,.7,1.12),
-        box-shadow 0.35s cubic-bezier(.4,1.15,.7,1.12),
-        background 0.35s;
+        transform 0.45s cubic-bezier(.41,1.01,.93,1.12),
+        box-shadow 0.45s cubic-bezier(.41,1.01,.93,1.12),
+        background 0.45s;
       cursor: pointer;
       will-change: transform;
       position: relative;
       z-index: 1;
     }
     .project:hover, .project:focus-within {
-      transform: scale(1.048) translateY(-7px) rotate(-0.8deg);
-      box-shadow: 0 12px 52px 0 rgba(88,166,255,0.25),
-                  0 6px 28px 0 rgba(34,42,61,0.15);
+      transform: scale(1.11) translateY(-10px) rotate(-1.1deg);
+      box-shadow: 0 16px 56px 0 rgba(88,166,255,0.25),
+                  0 8px 34px 0 rgba(34,42,61,0.16);
       background: rgba(34,42,61,0.99);
     }
     .project h3 {
@@ -110,6 +119,11 @@
     }
     .project a:hover, .project a:focus {
       text-decoration: underline;
+    }
+    /* Acessibilidade extra para card de contato */
+    #contact .project {
+      outline: 0;
+      role: region;
     }
 
     /* ==== Layout responsivo ==== */
@@ -135,7 +149,7 @@
 <body>
   <!-- ================== CABEÇALHO ================== -->
   <header>
-    <h1>Euugomes</h1>
+    <h1>Lucas Gomes</h1>
     <nav aria-label="Navegação principal">
       <a href="#home">Início</a>
       <a href="#about">Sobre</a>
@@ -150,7 +164,7 @@
     <section id="home" aria-label="Bem-vindo" data-aos="fade-up">
       <h2>Bem-vindo ao meu site!</h2>
       <p style="text-align:center; font-size:1.2em;">
-        Olá! Este é o portfólio oficial de Euugomes 🎉
+        Olá! Este é o portfólio oficial de Lucas Gomes 🎉
       </p>
     </section>
 
@@ -158,7 +172,7 @@
     <section id="about" aria-label="Sobre mim" data-aos="fade-up" data-aos-delay="90">
       <h2>Sobre mim</h2>
       <p style="text-align:center; max-width:700px; margin:auto;">
-        Olá! Sou <strong>Euugomes</strong>, desenvolvedor web apaixonado por tecnologia, com experiência em criar sites modernos, responsivos e focados em uma experiência incrível para os usuários.
+        Olá! Sou <strong>Lucas Gomes</strong>, desenvolvedor web apaixonado por tecnologia, com experiência em criar sites modernos, responsivos e focados em uma experiência incrível para os usuários. Trabalho com HTML, CSS, JavaScript e frameworks modernos, sempre buscando unir design limpo com excelente usabilidade e performance.
       </p>
     </section>
 
@@ -194,7 +208,8 @@
     <section id="contact" aria-label="Contato" data-aos="fade-up" data-aos-delay="250">
       <h2>Contato</h2>
       <div class="projects">
-        <div class="project" tabindex="0" data-aos="zoom-in-up">
+        <div class="project" tabindex="0" data-aos="zoom-in-up" role="region" aria-label="Contato">
+          <h3>Fale comigo</h3>
           <p>
             <strong>Email:</strong><br>
             <a href="mailto:lucasgomesbem198@gmail.com">lucasgomesbem198@gmail.com</a>
@@ -214,7 +229,7 @@
 
   <!-- ================== RODAPÉ ================== -->
   <footer>
-    <p>&copy; 2025 Euugomes</p>
+    <p>&copy; 2025 Lucas Gomes</p>
   </footer>
 
   <!-- ================== SCRIPTS ================== -->
