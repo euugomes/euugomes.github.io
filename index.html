@@ -1,96 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Portfólio de Euugomes</title>
-<style>
-  /* Reset básico */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Euugomes - Desenvolvedor Web especializado em sites modernos, design limpo e excelente usabilidade.">
+  <title>Portfólio de Euugomes</title>
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
 
-  /* Header */
-  header { position: fixed; top: 0; width: 100%; background: #161b22; padding: 15px 0; text-align: center; z-index: 1000; }
-  header h1 { color: #58a6ff; margin-bottom: 5px; }
-  nav a { color: #58a6ff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
-  nav a:hover { color: #1f6feb; }
+    /* Header */
+    header { position: fixed; top: 0; width: 100%; background: #161b22; padding: 15px 0; text-align: center; z-index: 1000; }
+    header h1 { color: #58a6ff; margin-bottom: 5px; font-size: 2em; }
+    nav a { color: #58a6ff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+    nav a:hover, nav a:focus { color: #1f6feb; }
 
-  /* Seções */
-  section { padding: 100px 20px 50px 20px; max-width: 1000px; margin: auto; }
-  section h2 { color: #58a6ff; margin-bottom: 20px; text-align: center; }
+    /* Espaço para header fixo */
+    body { padding-top: 100px; }
 
-  /* Cards de projetos */
-  .projects { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-  .project { background: #161b22; padding: 20px; border-radius: 10px; width: 280px; transition: transform 0.3s, background 0.3s; }
-  .project:hover { background: #21262d; transform: translateY(-5px); }
-  .project h3 { margin-bottom: 10px; color: #58a6ff; }
-  .project a { color: #1f6feb; text-decoration: none; font-weight: bold; }
-  .project a:hover { text-decoration: underline; }
+    /* Main content */
+    main { display: block; }
 
-  /* Contato */
-  #contact p { text-align: center; margin-bottom: 10px; }
-  #contact a { color: #1f6feb; text-decoration: none; }
-  #contact a:hover { text-decoration: underline; }
+    section { padding: 100px 20px 50px 20px; max-width: 1000px; margin: auto; }
+    section h2 { color: #58a6ff; margin-bottom: 20px; text-align: center; font-size: 1.8em; }
 
-  /* Rodapé */
-  footer { background: #161b22; text-align: center; padding: 20px; margin-top: 50px; }
+    /* Cards de projetos */
+    .projects { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .project { background: #161b22; padding: 20px; border-radius: 10px; width: 280px; transition: transform 0.3s, background 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .project:hover, .project:focus-within { background: #21262d; transform: translateY(-5px); }
+    .project h3 { margin-bottom: 10px; color: #58a6ff; }
+    .project a { color: #1f6feb; text-decoration: none; font-weight: bold; }
+    .project a:hover, .project a:focus { text-decoration: underline; }
 
-  /* Espaço para header fixo */
-  body { padding-top: 100px; }
-</style>
+    /* Contato */
+    #contact p { text-align: center; margin-bottom: 10px; }
+    #contact a { color: #1f6feb; text-decoration: none; }
+    #contact a:hover, #contact a:focus { text-decoration: underline; }
+
+    /* Rodapé */
+    footer { background: #161b22; text-align: center; padding: 20px; margin-top: 50px; font-size: 1em; }
+
+    /* Responsividade: mobile */
+    @media (max-width: 700px) {
+      section { padding: 80px 10px 35px 10px; }
+      .projects { flex-direction: column; align-items: center; }
+      .project { width: 95%; max-width: 340px; }
+      header h1 { font-size: 1.3em; }
+      nav a { margin: 0 8px; font-size: 1em; }
+    }
+
+    /* Acessibilidade: Focus visível */
+    a:focus { outline: 2px solid #58a6ff; outline-offset: 2px; }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Euugomes</h1>
-  <nav>
-    <a href="#home">Início</a>
-    <a href="#about">Sobre</a>
-    <a href="#projects">Projetos</a>
-    <a href="#contact">Contato</a>
-  </nav>
-</header>
+  <header>
+    <h1>Euugomes</h1>
+    <nav aria-label="Navegação principal">
+      <a href="#home">Início</a>
+      <a href="#about">Sobre</a>
+      <a href="#projects">Projetos</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </header>
 
-<section id="home">
-  <h2>Bem-vindo ao meu site!</h2>
-  <p style="text-align:center; font-size:1.2em;">Olá! Meu site está no ar 🎉</p>
-</section>
+  <main>
+    <section id="home" aria-label="Bem-vindo">
+      <h2>Bem-vindo ao meu site!</h2>
+      <p style="text-align:center; font-size:1.2em;">Olá! Este é o portfólio oficial de Euugomes 🎉</p>
+    </section>
 
-<section id="about">
-  <h2>Sobre mim</h2>
-  <p style="text-align:center; max-width:700px; margin:auto;">Olá! Sou Euugomes, desenvolvedor web. Crio sites modernos e responsivos, com foco em design limpo e usabilidade.</p>
-</section>
+    <section id="about" aria-label="Sobre mim">
+      <h2>Sobre mim</h2>
+      <p style="text-align:center; max-width:700px; margin:auto;">
+        Olá! Sou <strong>Euugomes</strong>, desenvolvedor web apaixonado por tecnologia, com experiência em criar sites modernos, responsivos e focados em uma experiência incrível para os usuários. Busco constantemente inovar e entregar soluções simples, elegantes e eficientes.
+      </p>
+    </section>
 
-<section id="projects">
-  <h2>Projetos</h2>
-  <div class="projects">
-    <div class="project">
-      <h3>Projeto 1</h3>
-      <p>Descrição do projeto 1. Aqui você pode colocar o que foi feito e tecnologias usadas.</p>
-      <a href="#">Ver projeto</a>
-    </div>
-    <div class="project">
-      <h3>Projeto 2</h3>
-      <p>Descrição do projeto 2. Coloque links ou imagens para mostrar seus trabalhos.</p>
-      <a href="#">Ver projeto</a>
-    </div>
-    <div class="project">
-      <h3>Projeto 3</h3>
-      <p>Descrição do projeto 3. Adicione mais projetos conforme quiser.</p>
-      <a href="#">Ver projeto</a>
-    </div>
-  </div>
-</section>
+    <section id="projects" aria-label="Meus Projetos">
+      <h2>Projetos</h2>
+      <div class="projects">
+        <div class="project" tabindex="0">
+          <h3>Portfolio Digital</h3>
+          <p>Meu portfólio pessoal desenvolvido com HTML, CSS e JavaScript. Foco em design minimalista e navegação intuitiva.</p>
+          <a href="https://euugomes.github.io/" target="_blank" rel="noopener">Ver projeto</a>
+        </div>
+        <div class="project" tabindex="0">
+          <h3>To-Do List</h3>
+          <p>Aplicativo simples para organização de tarefas do dia a dia, feito com ReactJS e localStorage.</p>
+          <a href="https://github.com/euugomes/todo-list" target="_blank" rel="noopener">Ver projeto</a>
+        </div>
+        <div class="project" tabindex="0">
+          <h3>Página de Cadastro</h3>
+          <p>Página de cadastro responsiva utilizando HTML5, CSS3 e validação de formulário com JavaScript.</p>
+          <a href="https://github.com/euugomes/cadastro-simples" target="_blank" rel="noopener">Ver projeto</a>
+        </div>
+      </div>
+    </section>
 
-<section id="contact">
-  <h2>Contato</h2>
-  <p>Email: <a href="mailto:euugomes@email.com">euugomes@email.com</a></p>
-  <p>GitHub: <a href="https://github.com/euugomes" target="_blank">github.com/euugomes</a></p>
-  <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/seu-perfil</a></p>
-</section>
+    <section id="contact" aria-label="Contato">
+      <h2>Contato</h2>
+      <p>Email: <a href="mailto:euugomes@email.com">euugomes@email.com</a></p>
+      <p>GitHub: <a href="https://github.com/euugomes" target="_blank" rel="noopener">github.com/euugomes</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/lucas-gomes-018219389" target="_blank" rel="noopener">linkedin.com/in/lucas-gomes-018219389</a></p>
+    </section>
+  </main>
 
-<footer>
-  <p>&copy; 2025 Euugomes</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Euugomes</p>
+  </footer>
 
 </body>
 </html>
