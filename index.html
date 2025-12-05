@@ -1,23 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Meu Site no GitHub Pages</title>
-  <style>
-    body {
-      background: #0d1117;
-      color: #c9d1d9;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 80px;
-    }
-    h1 {
-      color: #58a6ff;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Portfólio de Euugomes</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #0d1117; color: #c9d1d9; }
+  header { background: #161b22; padding: 20px; text-align: center; }
+  header h1 { color: #58a6ff; margin: 0; }
+  nav a { color: #58a6ff; margin: 0 15px; text-decoration: none; }
+  section { padding: 50px 20px; max-width: 900px; margin: auto; }
+  h2 { color: #58a6ff; }
+  .projects { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+  .project { background: #161b22; padding: 20px; border-radius: 8px; width: 250px; }
+  .project a { color: #58a6ff; text-decoration: none; }
+  footer { background: #161b22; text-align: center; padding: 20px; margin-top: 50px; }
+</style>
 </head>
 <body>
-  <h1>Olá! 👋</h1>
-  <p>Meu site no GitHub Pages está funcionando!</p>
+
+<header>
+  <h1>Euugomes</h1>
+  <nav>
+    <a href="#home">Início</a>
+    <a href="#about">Sobre</a>
+    <a href="#projects">Projetos</a>
+    <a href="#contact">Contato</a>
+  </nav>
+</header>
+
+<!-- Seção do site antigo -->
+<section id="home">
+  <h2>Bem-vindo ao meu site!</h2>
+  <p>Olá! Meu site está no ar 🎉</p>
+</section>
+
+<!-- Seção Sobre -->
+<section id="about">
+  <h2>Sobre mim</h2>
+  <p>Olá! Sou Euugomes, desenvolvedor web. Crio sites e aplicativos modernos e responsivos.</p>
+</section>
+
+<!-- Seção Projetos -->
+<section id="projects">
+  <h2>Projetos</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>Projeto 1</h3>
+      <p>Descrição do projeto 1.</p>
+      <a href="#">Ver projeto</a>
+    </div>
+    <div class="project">
+      <h3>Projeto 2</h3>
+      <p>Descrição do projeto 2.</p>
+      <a href="#">Ver projeto</a>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Contato -->
+<section id="contact">
+  <h2>Contato</h2>
+  <p>Email: <a href="mailto:euugomes@email.com">euugomes@email.com</a></p>
+  <p>GitHub: <a href="https://github.com/euugomes">github.com/euugomes</a></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Euugomes</p>
+</footer>
+
 </body>
 </html>
