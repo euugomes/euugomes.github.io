@@ -1,365 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio de Lucas Gomes - Desenvolvedor Web especializado em sites modernos, design limpo e excelente usabilidade.">
-  <meta name="author" content="Lucas Gomes">
-  <!-- SEO Avançada -->
-  <meta property="og:title" content="Portfólio de Lucas Gomes">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://euugomes.github.io/">
-  <meta property="og:description" content="Conheça o portfólio de Lucas Gomes, desenvolvedor web especializado em soluções modernas e criativas.">
-  <meta property="og:image" content="favicon.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Portfólio de Lucas Gomes">
-  <meta name="twitter:description" content="Portfólio com projetos, experiências e formas de contato.">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="icon" type="image/png" href="https://github.com/euugomes/euugomes.github.io/raw/main/favicon.png">
-  <title>Portfólio de Lucas Gomes</title>
-  <!-- AOS Animate On Scroll CSS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <style>
-    /* ==== Fundo gradiente multicor animado suave ==== */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #c9d1d9;
-      line-height: 1.6;
-      background: linear-gradient(120deg, #0d1117 0%, #161b22 25%, #273447 50%, #3a4762 75%, #bfcbe8 90%, #fff 100%);
-      background-size: 400% 400%;
-      animation: gradienteFundo 9s cubic-bezier(0.68, -0.6, 0.32, 1.6) infinite; /* mais suave e lenta */
-      padding-top: 100px;
-      min-height: 100vh;
-      transition: background 1.2s cubic-bezier(.77,.2,.32,1.08);
-    }
-    @keyframes gradienteFundo {
-      0%   { background-position: 0% 50%; }
-      30%  { background-position: 100% 50%; }
-      50%  { background-position: 75% 90%; }
-      70%  { background-position: 80% 100%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* ==== Cabeçalho fixo com glow ==== */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #161b22e9;
-      padding: 15px 0;
-      text-align: center;
-      z-index: 1000;
-      box-shadow: 0 2px 22px 0 rgba(58,166,255,0.26), 0 2px 8px rgba(28,38,49,0.14);
-      animation: headerGlow 1.8s alternate infinite;
-    }
-    @keyframes headerGlow {
-      0% { box-shadow: 0 2px 22px 0 rgba(58,166,255,0.19); }
-      50% { box-shadow: 0 2px 36px 0 rgba(88,166,255,0.42); }
-      100% { box-shadow: 0 2px 22px 0 rgba(58,166,255,0.19); }
-    }
-    header h1 {
-      color: #58a6ff;
-      margin-bottom: 6px;
-      font-size: 2em;
-      letter-spacing: 1px;
-      font-weight: 700;
-      font-family: inherit;
-      text-shadow: 0 0 18px #58a6ff88, 0 1px 7px rgba(88,166,255,0.17);
-      animation: textGlow 2.2s alternate infinite;
-    }
-    @keyframes textGlow {
-      0%, 100% { text-shadow: 0px 1px 8px #58a6ff21; }
-      51% { text-shadow: 0px 0px 22px #58a6ff44; }
-    }
-    nav ul {
-      display: inline-flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    nav ul li {
-      margin: 0 12px;
-    }
-    nav a {
-      color: #58a6ff;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 5px 3px;
-      font-size: 1.05em;
-      border-radius: 4px;
-      transition: color 0.38s, background 0.38s, box-shadow 0.4s;
-      outline: none;
-    }
-    nav a:focus, nav a:hover {
-      color: #fff;
-      background: #1f6feb;
-      box-shadow: 0px 0px 9px #1f6feb66;
-      outline: 2px solid #58a6ff;
-      outline-offset: 1px;
-    }
-    nav a:active {
-      color: #bfcbe8;
-    }
-
-    /* ==== Conteúdo principal ==== */
-    main { display: block; }
-    section {
-      padding: 100px 20px 55px 20px;
-      max-width: 950px;
-      margin: auto;
-      scroll-margin-top: 85px; /* para âncoras visíveis abaixo do header */
-    }
-    section h2 {
-      color: #58a6ff;
-      margin-bottom: 32px;
-      text-align: center;
-      font-size: 2em;
-      text-shadow: 0 0 10px #58a6ff44;
-      animation: textGlow 2.2s alternate infinite;
-    }
-
-    /* ==== Cards flutuantes ==== */
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      justify-content: center;
-    }
-    .project {
-      background: linear-gradient(120deg, #222a3d 60%, #58a6ff15 100%);
-      padding: 28px 22px 24px 22px;
-      border-radius: 19px;
-      width: 290px;
-      box-shadow: 
-        0 6px 28px 0 rgba(88,166,255,0.13),
-        0 2px 8px 0 rgba(34,42,61,0.12),
-        0px 0px 24px 0px #58a6ff16;
-      transition:
-        transform 0.65s cubic-bezier(.41,1.01,.93,1.12),
-        box-shadow 0.65s cubic-bezier(.41,1.01,.93,1.12),
-        background 0.5s;
-      cursor: pointer;
-      will-change: transform;
-      position: relative;
-      z-index: 1;
-      outline: none;
-      border: 2px solid #222a3d00;
-      animation: projectBounce 1.6s cubic-bezier(.57,1.55,.7,.56) 1;
-    }
-    @keyframes projectBounce {
-      0%   { transform: scale(0.99) translateY(8px); }
-      17%  { transform: scale(1.045) translateY(-7px); }
-      60%  { transform: scale(1.016) translateY(-3px);}
-      75%  { transform: scale(1) translateY(0px);}
-      100% { transform: scale(1) translateY(0px); }
-    }
-    .project[data-aos] {
-      transition: none; /* AOS controla transições animadas */
-    }
-    .project:focus-within, .project:focus, .project:hover {
-      transform: scale(1.13) translateY(-12px) rotate(-1.9deg);
-      box-shadow: 0 16px 56px 0 rgba(88,166,255,0.29), 
-                  0 8px 34px 0 rgba(38,52,81,0.19),
-                  0px 0px 42px 0px #58a6ff38;
-      background: linear-gradient(120deg, #222a3d 98%, #58a6ff38 100%);
-      border: 2px solid #58a6ff44;
-      outline: 2px solid #58a6ff44;
-      outline-offset: 2px;
-    }
-    .project h3 {
-      margin-bottom: 12px;
-      color: #58a6ff;
-      font-size: 1.28em;
-      text-shadow: 0 0 12px #58a6ff31;
-    }
-    .project a {
-      color: #1f6feb;
-      text-decoration: none;
-      font-weight: bold;
-      word-break: break-all;
-      outline: none;
-      border-radius: 3px;
-      padding: 2px 2.5px;
-      transition: color 0.34s, text-decoration 0.3s, background 0.36s, box-shadow 0.39s;
-    }
-    .project a:hover, .project a:focus {
-      text-decoration: underline;
-      color: #fff;
-      background: #1f6feb;
-      box-shadow: 0 0 9px #1f6feb69;
-      outline: 2px solid #58a6ff;
-      outline-offset: 1px;
-    }
-    /* Card de contato mais marcante */
-    #contact .project {
-      outline: none;
-      border: 2px solid #58a6ff15;
-      box-shadow: 0 8px 30px #58a6ff24, 0 2px 8px #222a3d11;
-      background: linear-gradient(115deg, #222a3d 82%, #58a6ff29 100%);
-    }
-    #contact .project:focus-within, #contact .project:focus, #contact .project:hover {
-      outline: 2px solid #1f6feb;
-      border: 2px solid #1f6feb;
-      background: linear-gradient(115deg, #222a3d 82%, #58a6ff99 100%);
-    }
-
-    /* ==== Layout responsivo ==== */
-    @media (max-width: 700px) {
-      section { padding: 80px 8px 35px 8px; }
-      .projects { flex-direction: column; align-items: center; }
-      .project { width: 96%; max-width: 340px; }
-      header h1 { font-size: 1.3em; }
-      nav ul li { margin: 0 4px; }
-      nav a    { font-size: 1em; }
-    }
-
-    /* ==== Rodapé e address ==== */
-    footer {
-      background: #161b22e8;
-      text-align: center;
-      padding: 27px 10px 14px 10px;
-      margin-top: 55px;
-      font-size: 1em;
-      box-shadow: 0 -2px 12px rgba(28,38,49,0.08);
-      color: #bfcbe8;
-    }
-    footer address {
-      margin-top: 14px;
-      font-style: normal;
-      font-size: 1em;
-      color: #58a6ff;
-    }
-    footer a {
-      color: #1f6feb;
-      margin: 0 7px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1em;
-      transition: color 0.3s;
-    }
-    footer a:hover, footer a:focus {
-      color: #fff;
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Lucas - Estudante de TI</title>
+    <!-- Bootstrap CSS via CDN for beautiful, responsive design -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom CSS for enhancements -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .hero {
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.5rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #007bff;
+        }
+        .experience-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        .experience-card:hover {
+            transform: translateY(-10px);
+        }
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .certificate-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .certificate-card:hover {
+            transform: scale(1.05);
+        }
+        .certificate-card img {
+            width: 100%;
+            height: auto;
+        }
+        .certificate-card .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+        footer {
+            background: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+    </style>
 </head>
 <body>
-  <!-- ================== CABEÇALHO ================== -->
-  <header>
-    <h1>Lucas Gomes</h1>
-    <nav aria-label="Navegação principal">
-      <ul>
-        <li><a href="#home">Início</a></li>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#projects">Projetos</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- ================== CONTEÚDO PRINCIPAL ================== -->
-  <main>
-    <!-- Seção Home -->
-    <section id="home" aria-label="Bem-vindo" data-aos="fade-down" data-aos-duration="1200">
-      <h2 data-aos="fade-right" data-aos-delay="150">Bem-vindo ao meu site!</h2>
-      <p style="text-align:center; font-size:1.2em;" data-aos="fade-up" data-aos-delay="300">
-        Olá! Este é o portfólio oficial de Lucas Gomes 🎉, desenvolvedor apaixonado por tecnologia moderna.
-      </p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in">Bem-vindo ao Meu Portfólio</h1>
+            <p class="fade-in">Lucas - Estudante de Tecnologia da Informação</p>
+        </div>
     </section>
 
-    <!-- Seção Sobre mim -->
-    <section id="about" aria-label="Sobre mim" data-aos="fade-down" data-aos-delay="300">
-      <h2>Sobre mim</h2>
-      <p style="text-align:center; max-width:700px; margin:auto;" data-aos="fade-up" data-aos-delay="400">
-        Olá! Sou <strong>Lucas Gomes</strong>, desenvolvedor web especializado na criação de sites modernos, responsivos e com experiência centrada no usuário. Trabalho com tecnologias como <em>HTML5, CSS3, JavaScript, ReactJS</em> e outras ferramentas do mercado. Valorizar código limpo, design minimalista e performance são meus principais objetivos.<br>
-        Estou sempre aprendendo, testando novas soluções e pronto para desafios criativos!
-      </p>
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <p class="lead text-center">
+                Estudante de Tecnologia da Informação com experiência prática em e-commerce e desenvolvimento web.
+            </p>
+        </div>
     </section>
 
-    <!-- Seção Projetos -->
-    <section id="projects" aria-label="Meus Projetos" data-aos="fade-up" data-aos-delay="350">
-      <h2>Projetos</h2>
-      <div class="projects">
-        <div class="project" tabindex="0" data-aos="zoom-in" data-aos-delay="0" role="region" aria-label="Portfolio Digital">
-          <h3>Portfolio Digital</h3>
-          <p>
-            Meu portfólio pessoal desenvolvido com HTML, CSS e JavaScript. Foco em design minimalista, navegação intuitiva e animações elegantes.
-          </p>
-          <a href="https://euugomes.github.io/" target="_blank" rel="noopener">Ver projeto</a>
+    <!-- Experience Section -->
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Experiência Profissional</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="experience-card fade-in">
+                        <h4>Gerenciamento de Loja Dropshipping no Shopify</h4>
+                        <p><strong>Duração:</strong> 1 ano</p>
+                        <ul>
+                            <li>Criei e otimizei o site completo (design responsivo, layout e configuração para conversão).</li>
+                            <li>Atendi diretamente mais de 15 clientes via suporte online, resolvi dúvidas.</li>
+                            <li>Realizei mais de 20 vendas focando na satisfação e rapidez.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="experience-card fade-in">
+                        <h4>Varejo Operacional</h4>
+                        <p><strong>Duração:</strong> 1 ano e 6 meses</p>
+                        <ul>
+                            <li>Atendimento consultivo ao cliente.</li>
+                            <li>Gestão de vendas.</li>
+                            <li>Controle de planilhas Excel.</li>
+                            <li>Orientado a resultados.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="project" tabindex="0" data-aos="zoom-in" data-aos-delay="110" role="region" aria-label="To-Do List">
-          <h3>To-Do List</h3>
-          <p>
-            Aplicativo simples para organizar o dia a dia. Feito com ReactJS e localStorage, visual limpo e prático.
-          </p>
-          <a href="https://github.com/euugomes/todo-list" target="_blank" rel="noopener">Ver projeto</a>
-        </div>
-        <div class="project" tabindex="0" data-aos="zoom-in" data-aos-delay="220" role="region" aria-label="Página de Cadastro">
-          <h3>Página de Cadastro</h3>
-          <p>
-            Página responsiva utilizando HTML5, CSS3 e JavaScript para validação de formulários. Experiência fluida em todos os dispositivos!
-          </p>
-          <a href="https://github.com/euugomes/cadastro-simples" target="_blank" rel="noopener">Ver projeto</a>
-        </div>
-      </div>
     </section>
 
-    <!-- Seção Contato -->
-    <section id="contact" aria-label="Contato" data-aos="fade-up" data-aos-delay="450">
-      <h2>Contato</h2>
-      <div class="projects">
-        <div class="project" tabindex="0" data-aos="flip-right" data-aos-delay="0" role="region" aria-label="Formas de contato">
-          <h3>Fale comigo</h3>
-          <p>
-            <strong>Email:</strong><br>
-            <a href="mailto:lucasgomesbem198@gmail.com">lucasgomesbem198@gmail.com</a>
-          </p>
-          <p>
-            <strong>GitHub:</strong><br>
-            <a href="https://github.com/euugomes" target="_blank" rel="noopener">github.com/euugomes</a>
-          </p>
-          <p>
-            <strong>LinkedIn:</strong><br>
-            <a href="https://www.linkedin.com/in/lucas-gomes-018219389" target="_blank" rel="noopener">linkedin.com/in/lucas-gomes-018219389</a>
-          </p>
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Certificados</h2>
+            <p class="text-center mb-4">Adicione seus certificados aqui. Substitua os placeholders com imagens reais ou links para seus certificados (ex: upload para o GitHub e referencie o caminho).</p>
+            <div class="certificate-grid">
+                <!-- Placeholder for Certificate 1 -->
+                <div class="certificate-card fade-in">
+                    <img src="https://via.placeholder.com/400x300?text=Certificado+1" alt="Certificado 1">
+                    <div class="card-body">
+                        <h5>Certificado em Desenvolvimento Web</h5>
+                        <p>Descrição breve do certificado.</p>
+                    </div>
+                </div>
+                <!-- Placeholder for Certificate 2 -->
+                <div class="certificate-card fade-in">
+                    <img src="https://via.placeholder.com/400x300?text=Certificado+2" alt="Certificado 2">
+                    <div class="card-body">
+                        <h5>Certificado em E-commerce</h5>
+                        <p>Descrição breve do certificado.</p>
+                    </div>
+                </div>
+                <!-- Adicione mais cards conforme necessário -->
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <!-- ================== RODAPÉ ================== -->
-  <footer>
-    <p>&copy; 2025 Lucas Gomes. Todos os direitos reservados.</p>
-    <address>
-      <a href="mailto:lucasgomesbem198@gmail.com">Email</a> |
-      <a href="https://github.com/euugomes" target="_blank" rel="noopener">GitHub</a> |
-      <a href="https://www.linkedin.com/in/lucas-gomes-018219389" target="_blank" rel="noopener">LinkedIn</a>
-    </address>
-  </footer>
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Contato</h2>
+            <p class="text-center">Entre em contato comigo via e-mail: lucas@example.com</p>
+            <!-- Formulário simples (pode integrar com JS ou backend se quiser) -->
+            <form class="mx-auto" style="max-width: 600px;">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="name" placeholder="Seu nome">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="seu@email.com">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Mensagem</label>
+                    <textarea class="form-control" id="message" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </section>
 
-  <!-- ================== SCRIPTS ================== -->
-  <!-- AOS Animate on Scroll JS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true,
-      duration: 1200,
-      offset: 32,
-      easing: 'ease-in-out-quart',
-      delay: 130,
-      mirror: true
-    });
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Lucas. Todos os direitos reservados. Desenvolvido com amor em Lajedo, Pernambuco.</p>
+    </footer>
 
-    // Bounce animation nos cards ao entrar em tela (reforço)
-    document.querySelectorAll('.project').forEach(card => {
-      card.addEventListener('focus', () => {
-        card.classList.add('animated');
-      });
-      card.addEventListener('blur', () => {
-        card.classList.remove('animated');
-      });
-    });
-  </script>
+    <!-- Bootstrap JS via CDN for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Custom JS for simple animations or form handling -->
+    <script>
+        // Simple form submission alert (placeholder)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada! (Isso é um placeholder; integre com um backend real se necessário.)');
+        });
+    </script>
 </body>
 </html>
